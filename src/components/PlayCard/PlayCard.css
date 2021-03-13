@@ -1,0 +1,44 @@
+.play-card {
+	position: relative;
+	width: 40%;
+	height: 70vh;
+	margin-top: 4rem;
+	margin-left: 4rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: stretch;
+}
+
+.card-bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	filter: grayscale(0.3) brightness(0.7);
+}
+
+.content {
+	background-color: #ff9777;
+	height: 15vh;
+	padding: 1rem 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.content * {
+	background: #5b437c;
+	padding: 0.5rem 1.5rem;
+	border-radius: 0.5rem;
+}
+
+.content * * {
+	color: #f9f871;
+	width: 2.4rem;
+	height: 2.4rem;
+}

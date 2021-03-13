@@ -1,0 +1,67 @@
+.footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.credit {
+	color: #322059;
+	font-size: 1.2rem;
+	font-family: "Poppins", sans-serif;
+	margin-top: 2rem;
+	padding: 1rem;
+}
+
+.heart {
+	color: red;
+}
+
+/* .balls-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 4rem;
+	margin-bottom: 6rem;
+}
+
+.ball {
+	stroke: black;
+	stroke-width: 3px;
+	margin: 0 2rem;
+	animation: move 10s linear infinite;
+}
+
+.red {
+	fill: rgb(241, 21, 21);
+}
+
+.green {
+	fill: rgb(18, 214, 18);
+}
+
+.blue {
+	fill: rgb(37, 92, 209);
+}
+
+.yellow {
+	fill: #f9c80e;
+}
+
+@keyframes move {
+	0% {
+		transform: translateX(-50vw);
+	}
+	25% {
+		transform: translateX(0vw);
+	}
+	50% {
+		transform: translateX(50vw);
+	}
+	75% {
+		transform: translateX(0vw);
+	}
+	100% {
+		transform: translateX(-50vw);
+	}
+} */

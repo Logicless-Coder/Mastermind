@@ -1,0 +1,88 @@
+.register-page {
+	width: 100%;
+	height: calc(100vh - 4rem);
+	background-image: linear-gradient(
+		to left bottom,
+		#042e6d,
+		#0064a9,
+		#0099ae,
+		#00c879,
+		#a8eb12
+	);
+	padding-top: 4rem;
+}
+
+.register-form-box {
+	width: 50%;
+	min-width: 600px;
+	margin: 0 auto;
+	background-color: #fff;
+	border-radius: 0.5rem;
+	box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.title {
+	background-color: #000;
+	color: #fff;
+	padding: 1rem;
+	font-size: 1.5rem;
+	border-radius: 0.5rem 0.5rem 0 0;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-family: "Poppins", sans-serif;
+}
+
+.register-form {
+	padding: 2rem 4rem;
+	display: flex;
+	flex-direction: column;
+	font-family: "Ubuntu", sans-serif;
+}
+
+.input-group {
+	margin: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.label {
+	width: 35%;
+	font-size: 1.2rem;
+}
+
+.input {
+	flex-grow: 1;
+	background-color: #ddd;
+	border: none;
+	border-radius: 4px;
+	font-size: 1.2rem;
+	padding: 0.5rem;
+	border: 2px solid transparent;
+}
+
+.input:focus {
+	border: 2px solid #042e6d;
+}
+
+.register-button {
+	width: 20%;
+	min-width: 100px;
+	margin: 2rem auto;
+	background-color: rgb(233, 54, 84);
+	color: white;
+	padding: 0.5rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 4px;
+}
+
+.login-link {
+	text-decoration: none;
+	text-align: center;
+	font-family: "Quicksand", sans-serif;
+	font-weight: 600;
+}

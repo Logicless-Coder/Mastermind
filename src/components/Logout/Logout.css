@@ -1,0 +1,10 @@
+.logout-button {
+	background: none;
+	border: none;
+	font-size: 1.2rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	background-color: #f28705;
+	color: #322059;
+	font-family: "Kumbh Sans", sans-serif;
+}

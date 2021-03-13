@@ -1,0 +1,51 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5rem 4rem;
+	background-color: #322059;
+	box-shadow: 0 0.2rem 2rem 0 rgba(108, 88, 140, 0.5);
+}
+
+.brand a {
+	position: relative;
+	color: #f2cb05;
+	font-family: "Kumbh Sans", sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 2.4rem;
+}
+
+.nav-list {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	list-style-type: none;
+}
+
+.nav-item {
+	margin: 0 2rem;
+}
+
+.nav-link {
+	font-size: 1.2rem;
+	color: #f28705;
+	text-decoration: none;
+	font-family: "Kumbh Sans", sans-serif;
+	position: relative;
+}
+
+.nav-link::after {
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 2px;
+	bottom: -2px;
+	left: 0;
+	background-color: #f28705;
+	transition: width 200ms ease-in-out;
+}
+
+.nav-item:hover .nav-link::after {
+	width: 100%;
+}
