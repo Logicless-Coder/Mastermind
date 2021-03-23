@@ -16,6 +16,7 @@ import Home from "./pages/Home/Home.jsx";
 import Register from "./pages/Register/Register.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Profile from "./pages/Profile/Profile";
+import Play from "./pages/Play/Play";
 
 import "./App.css";
 
@@ -71,6 +72,15 @@ const App = () => {
 					<Route exact path='/profile'>
 						{auth.authenticated ? (
 							<Profile />
+						) : token ? (
+							<Loader />
+						) : (
+							<Redirect to='/login' />
+						)}
+					</Route>
+					<Route exact path='/play'>
+						{auth.authenticated ? (
+							<Play />
 						) : token ? (
 							<Loader />
 						) : (

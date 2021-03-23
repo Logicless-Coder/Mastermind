@@ -1,0 +1,7 @@
+.blocks {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 2rem;
+	margin-right: 12rem;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./Hero.css";
 
@@ -9,7 +10,11 @@ const Hero = () => {
 			<div className='hero__subtitle'>
 				A <span>colour</span> based code breaking game.
 			</div>
-			<div className='hero__play'>Play Now</div>
+			<div className='hero__play'>
+				<Link to='/play' className='play-link'>
+					Play Now
+				</Link>
+			</div>
 		</div>
 	);
 };

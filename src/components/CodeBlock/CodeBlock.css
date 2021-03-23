@@ -1,0 +1,19 @@
+.code-block {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.guess-hint {
+	font-size: 2rem;
+}
+
+.guess-code {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+}
