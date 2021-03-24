@@ -7,7 +7,7 @@ const getPlayer = (req, res) => {
 		const jwtSecret = process.env.JWT_SECRET;
 		jwt.verify(token, jwtSecret, (err, decoded) => {
 			if (err) {
-				return res.status(500).json({ error: err });
+				return res.status(200).json({ error: "Token expired." });
 			}
 			Player.findOne({ _id: decoded.playerId }, (err, player) => {
 				if (err) {

@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 
 const authRoutes = require("./routes/auth");
+const gameRoutes = require("./routes/game");
 const connect = require("./controllers/database-connect");
 
 connect();
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", authRoutes);
+app.use("/game", gameRoutes);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {

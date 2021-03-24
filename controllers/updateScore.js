@@ -16,9 +16,11 @@ const updateScore = async (req, res) => {
 				if (player) {
 					const currentScore = player.score;
 					const newScore = currentScore + req.body.points;
+					player.score = newScore;
+
 					Player.updateOne(
 						{ _id: decoded.playerId },
-						{ $set: { score: newScore } },
+						{ score: newScore },
 						(error, player) => {
 							if (error) {
 								return res.status(500).json({ error: error });
