@@ -34,7 +34,9 @@ const App = () => {
 					},
 				})
 				.then((response) => {
-					if (response.data.username && response.data.email) {
+					if (response.data.error === "Token expired.") {
+						localStorage.removeItem("token");
+					} else if (response.data.username && response.data.email) {
 						dispatch(
 							loginUser({
 								player: {
@@ -46,6 +48,9 @@ const App = () => {
 							})
 						);
 					}
+				})
+				.catch((error) => {
+					console.log(error);
 				});
 		}
 	}, [dispatch, token]);

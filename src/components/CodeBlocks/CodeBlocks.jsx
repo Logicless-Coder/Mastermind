@@ -14,19 +14,20 @@ const CodeBlocks = ({
 }) => {
 	return (
 		<div className='blocks'>
-			{guesses.map((guess, index) => {
-				return (
-					<CodeBlock
-						codeGuess={guess}
-						targetCode={targetCode}
-						checkVictory={checkVictory}
-						selectedBlock={selectedBlock}
-						numberOfGuesses={numberOfGuesses}
-						guessesLeft={guessesLeft}
-						id={"codeblock-" + index}
-					/>
-				);
-			})}
+			{guesses &&
+				guesses.map((guess, index) => {
+					return (
+						<CodeBlock
+							codeGuess={guess}
+							targetCode={targetCode}
+							checkVictory={checkVictory}
+							selectedBlock={selectedBlock}
+							numberOfGuesses={numberOfGuesses}
+							guessesLeft={guessesLeft}
+							id={"codeblock-" + index}
+						/>
+					);
+				})}
 		</div>
 	);
 };

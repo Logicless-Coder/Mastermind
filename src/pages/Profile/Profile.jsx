@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 
 import Navbar from "../../components/Navbar/Navbar";
@@ -7,11 +7,13 @@ import Footer from "../../components/Footer/Footer";
 import Loader from "../../components/Loader/Loader";
 
 import { BACKEND_URL } from "../../constants/route-urls";
+import updateScore from "./../../redux/actions/updateScore";
 
 import "./Profile.css";
 
 const Profile = () => {
 	const auth = useSelector((state) => state.auth);
+	const dispatch = useDispatch();
 	const [rank, setRank] = useState(-1);
 
 	useEffect(() => {
@@ -20,7 +22,7 @@ const Profile = () => {
 
 	const getRank = (user) => {
 		axios
-			.post(BACKEND_URL + "/auth/rank", {
+			.post(BACKEND_URL + "/game/rank", {
 				username: user.username,
 			})
 			.then((response) => {

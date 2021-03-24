@@ -14,6 +14,14 @@
 	padding: 0 4rem;
 }
 
+.code-blocks {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 3rem;
+	margin-right: 12rem;
+}
+
 .color-menu {
 	display: flex;
 	justify-content: center;

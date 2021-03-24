@@ -1,4 +1,8 @@
-import { LOGIN_USER, LOGOUT_USER } from "./../../constants/action-types";
+import {
+	LOGIN_USER,
+	LOGOUT_USER,
+	UPDATE_SCORE,
+} from "./../../constants/action-types";
 
 const initialState = {
 	authenticated: false,
@@ -21,6 +25,14 @@ const authReducer = (state = initialState, action) => {
 				authenticated: false,
 				token: null,
 				user: {},
+			};
+		case UPDATE_SCORE:
+			return {
+				...state,
+				user: {
+					...state.user,
+					score: action.payload.score,
+				},
 			};
 		default:
 			return state;
