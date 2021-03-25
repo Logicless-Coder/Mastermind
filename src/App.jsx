@@ -19,6 +19,7 @@ import Profile from "./pages/Profile/Profile";
 import Play from "./pages/Play/Play";
 
 import "./App.css";
+import Leaderboard from "./pages/Leaderboard/Leaderboard";
 
 const App = () => {
 	const auth = useSelector((state) => state.auth);
@@ -77,6 +78,15 @@ const App = () => {
 					<Route exact path='/profile'>
 						{auth.authenticated ? (
 							<Profile />
+						) : token ? (
+							<Loader />
+						) : (
+							<Redirect to='/login' />
+						)}
+					</Route>
+					<Route exact path='/leaderboard'>
+						{auth.authenticated ? (
+							<Leaderboard />
 						) : token ? (
 							<Loader />
 						) : (

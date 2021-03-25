@@ -1,0 +1,79 @@
+.gameover-page {
+	width: 100%;
+	height: calc(100vh - 4rem);
+	background-image: linear-gradient(
+		to left bottom,
+		#042e6d,
+		#0064a9,
+		#0099ae,
+		#00c879,
+		#a8eb12
+	);
+	padding-top: 4rem;
+}
+
+.gameover-box {
+	width: 50%;
+	margin: 0 auto;
+	background-color: #fff;
+	border-radius: 0.5rem;
+	box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.message {
+	background-color: #000;
+	color: #fff;
+	padding: 1rem;
+	font-size: 3rem;
+	border-radius: 0.5rem 0.5rem 0 0;
+	text-align: center;
+	/* text-transform: uppercase; */
+	font-weight: 500;
+	font-family: "RocknRoll One", sans-serif;
+}
+
+.points {
+	padding-top: 4rem;
+	padding-bottom: 6rem;
+	font-size: 10rem;
+	text-align: center;
+	font-weight: 900;
+	/* border: 2px solid red; */
+}
+
+.victory {
+	color: rgb(36, 199, 36);
+}
+
+.defeat {
+	color: rgb(230, 45, 13);
+}
+
+.links {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0 1rem;
+	/* border: 2px solid red; */
+}
+
+.button {
+	margin: 1rem 0.5rem;
+	background-color: rgb(182, 182, 182);
+	color: rgb(46, 46, 46);
+	padding: 0.5rem;
+	font-size: 1rem;
+	text-decoration: none;
+	border: none;
+	border-radius: 4px;
+}
+
+.big-button {
+	margin-left: auto;
+	background-color: rgb(233, 54, 84);
+	color: white;
+	padding: 1rem 1.5rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-transform: uppercase;
+}

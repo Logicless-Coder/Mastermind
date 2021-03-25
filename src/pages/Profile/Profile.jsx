@@ -7,7 +7,6 @@ import Footer from "../../components/Footer/Footer";
 import Loader from "../../components/Loader/Loader";
 
 import { BACKEND_URL } from "../../constants/route-urls";
-import updateScore from "./../../redux/actions/updateScore";
 
 import "./Profile.css";
 

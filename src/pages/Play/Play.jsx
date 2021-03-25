@@ -11,6 +11,7 @@ import Footer from "../../components/Footer/Footer";
 import ColorCircle from "../../components/ColorCircle/ColorCircle";
 import TargetBlock from "../../components/TargetBlock/TargetBlock";
 import CodeBlock from "../../components/CodeBlock/CodeBlock";
+import GameOver from "../../components/GameOver/GameOver";
 
 import "./Play.css";
 
@@ -75,6 +76,7 @@ const Play = () => {
 		guesses: initGuesses(settings.numberOfGuesses, settings.lengthOfCode),
 		hints: initHints(settings.numberOfGuesses, settings.lengthOfCode),
 		status: "ongoing",
+		points: 0,
 	});
 
 	const generateHint = (code) => {
@@ -104,19 +106,23 @@ const Play = () => {
 	};
 
 	const endGame = (status) => {
-		let points = 0;
+		let newPoints = gameData.points;
 		if (status === "victory") {
-			points = +20;
+			newPoints = 20;
 		} else if (status === "defeat") {
-			points = -5;
+			newPoints = -5;
 		}
+
+		setGameData((prev) => {
+			return { ...prev, points: newPoints };
+		});
 
 		const token = auth.token;
 
 		axios
 			.patch(
 				BACKEND_URL + "/game/score",
-				{ points },
+				{ points: newPoints },
 				{
 					headers: {
 						Authorization: "Bearer " + token,
@@ -125,7 +131,7 @@ const Play = () => {
 			)
 			.then((response) => {
 				dispatch(updateScore({ score: response.data.score }));
-				window.location.reload();
+				// window.location.reload();
 			});
 	};
 
@@ -151,62 +157,69 @@ const Play = () => {
 
 			let newHints = gameData.hints;
 			newHints[row] = [hint1, hint2];
+			let newGuessesLeft = gameData.guessesLeft - 1;
 
 			setGameData((prev) => {
-				return { ...prev, hints: newHints };
+				return { ...prev, hints: newHints, guessesLeft: newGuessesLeft };
 			});
 
 			if (hint1 === settings.lengthOfCode && hint2 === settings.lengthOfCode) {
+				endGame("victory");
 				setGameData((prev) => {
 					return { ...prev, status: "victory" };
 				});
-				endGame("victory");
 			} else if (newClicksLeft === 0 && gameData.status === "ongoing") {
+				endGame("defeat");
 				setGameData((prev) => {
 					return { ...prev, status: "defeat" };
 				});
-				endGame("defeat");
 			}
 		}
 	};
 
-	return (
-		<div className='play'>
-			<Navbar />
-			<div className='play-area'>
-				<TargetBlock
-					targetCode={gameData.targetCode}
-					guessesLeft={gameData.guessesLeft}
-				/>
-				<div className='code-blocks'>
-					{gameData &&
-						gameData.guesses.map((guess, index) => {
+	if (gameData.status === "ongoing") {
+		return (
+			<div className='play'>
+				<Navbar />
+				<div className='play-area'>
+					<TargetBlock
+						targetCode={gameData.targetCode}
+						guessesLeft={gameData.guessesLeft}
+					/>
+					<div className='code-blocks'>
+						{gameData &&
+							gameData.guesses.map((guess, index) => {
+								return (
+									<CodeBlock
+										correctPlaceAndColor={gameData.hints[index][0]}
+										correctColor={gameData.hints[index][1]}
+										codeGuess={guess}
+										id={"codeblock-" + index}
+									/>
+								);
+							})}
+					</div>
+				</div>
+				<div className='color-menu'>
+					{gameData.colorsToBeUsed &&
+						gameData.colorsToBeUsed.map((color, index) => {
 							return (
-								<CodeBlock
-									correctPlaceAndColor={gameData.hints[index][0]}
-									correctColor={gameData.hints[index][1]}
-									codeGuess={guess}
-									id={"codeblock-" + index}
+								<ColorCircle
+									color={color}
+									id={"color-" + index}
+									addColor={addColor}
 								/>
 							);
 						})}
 				</div>
+				<Footer />
 			</div>
-			<div className='color-menu'>
-				{gameData.colorsToBeUsed &&
-					gameData.colorsToBeUsed.map((color, index) => {
-						return (
-							<ColorCircle
-								color={color}
-								id={"color-" + index}
-								addColor={addColor}
-							/>
-						);
-					})}
-			</div>
-			<Footer />
-		</div>
-	);
+		);
+	} else if (gameData.status === "victory" || gameData.status === "defeat") {
+		return <GameOver pointsEarned={gameData.points} />;
+	} else {
+		return <></>;
+	}
 };
 
 export default Play;

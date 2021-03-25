@@ -13,7 +13,7 @@ const Navbar = () => {
 			<nav className='nav'>
 				<ul className='nav-list'>
 					<li className='nav-item'>
-						<a href='#' className='nav-link'>
+						<a href='/leaderboard' className='nav-link'>
 							Leaderboard
 						</a>
 					</li>
