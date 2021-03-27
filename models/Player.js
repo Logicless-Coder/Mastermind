@@ -23,6 +23,10 @@ const playerSchema = new mongoose.Schema({
 		type: Number,
 		default: 0,
 	},
+	firstTime: {
+		type: Boolean,
+		default: true,
+	},
 });
 
 module.exports = mongoose.model("Player", playerSchema);

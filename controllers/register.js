@@ -50,6 +50,8 @@ const registerPlayer = async (req, res) => {
 			username: player.username,
 			email: player.email,
 			score: player.score,
+			gamesPlayed: player.gamesPlayed,
+			firstTime: player.firstTime,
 		},
 	});
 };

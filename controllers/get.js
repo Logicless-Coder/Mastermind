@@ -18,6 +18,8 @@ const getPlayer = (req, res) => {
 						username: player.username,
 						email: player.email,
 						score: player.score,
+						gamesPlayed: player.gamesPlayed,
+						firstTime: player.firstTime,
 					});
 				} else {
 					return res.status(500).json({ error: "No such player." });
