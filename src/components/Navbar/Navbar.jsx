@@ -13,6 +13,11 @@ const Navbar = () => {
 			<nav className='nav'>
 				<ul className='nav-list'>
 					<li className='nav-item'>
+						<a href='/how-to-play' className='nav-link'>
+							How to Play
+						</a>
+					</li>
+					<li className='nav-item'>
 						<a href='/leaderboard' className='nav-link'>
 							Leaderboard
 						</a>

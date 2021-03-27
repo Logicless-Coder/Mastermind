@@ -17,9 +17,10 @@ import Register from "./pages/Register/Register.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Profile from "./pages/Profile/Profile";
 import Play from "./pages/Play/Play";
+import Leaderboard from "./pages/Leaderboard/Leaderboard";
+import HowToPlay from "./pages/HowToPlay/HowToPlay";
 
 import "./App.css";
-import Leaderboard from "./pages/Leaderboard/Leaderboard";
 
 const App = () => {
 	const auth = useSelector((state) => state.auth);
@@ -95,7 +96,20 @@ const App = () => {
 					</Route>
 					<Route exact path='/play'>
 						{auth.authenticated ? (
-							<Play />
+							auth.user.firstTime === true ? (
+								<Redirect to='/how-to-play' />
+							) : (
+								<Play />
+							)
+						) : token ? (
+							<Loader />
+						) : (
+							<Redirect to='/login' />
+						)}
+					</Route>
+					<Route exact path='/how-to-play'>
+						{auth.authenticated ? (
+							<HowToPlay />
 						) : token ? (
 							<Loader />
 						) : (

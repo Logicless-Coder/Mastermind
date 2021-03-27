@@ -63,7 +63,7 @@ const Play = () => {
 	const initHints = (rows) => {
 		let arr = [];
 		for (let i = 0; i < rows; i++) {
-			arr.push([0, 0]);
+			arr.push(["-", "-"]);
 		}
 		return arr;
 	};

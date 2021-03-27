@@ -14,24 +14,28 @@ const authReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case LOGIN_USER:
 			return {
-				...state,
 				authenticated: true,
 				token: action.payload.token,
-				user: action.payload.player,
+				user: {
+					...state.user,
+					...action.payload.player,
+				},
 			};
 		case LOGOUT_USER:
 			return {
-				...state,
 				authenticated: false,
 				token: null,
 				user: {},
 			};
 		case UPDATE_SCORE:
 			return {
-				...state,
+				authenticated: state.authenticated,
+				token: state.token,
 				user: {
 					...state.user,
 					score: action.payload.score,
+					gamesPlayed: state.user.gamesPlayed + 1,
+					firstTime: false,
 				},
 			};
 		default:
