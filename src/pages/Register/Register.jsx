@@ -13,6 +13,7 @@ const Register = () => {
 	const dispatch = useDispatch();
 
 	const [formData, setFormData] = useState({});
+	const [message, setMessage] = useState("");
 
 	const handleFormChange = (event) => {
 		const { name, value } = event.target;
@@ -36,9 +37,10 @@ const Register = () => {
 					})
 				);
 				localStorage.setItem("token", response.data.token);
+				console.log(response);
 			})
 			.catch((error) => {
-				console.log(error);
+				setMessage(error.response.data.message);
 			});
 	};
 
@@ -56,7 +58,9 @@ const Register = () => {
 							Username
 						</label>
 						<input
-							className='input'
+							className={`input ${
+								message.includes("username") ? "wrong-input" : ""
+							}`}
 							type='text'
 							name='username'
 							id='username'
@@ -64,12 +68,18 @@ const Register = () => {
 							onChange={handleFormChange}
 						/>
 					</div>
+					{message.includes("username") && (
+						<p className='server-message'>{message}</p>
+					)}
+
 					<div className='input-group'>
 						<label htmlFor='email' className='label'>
 							Email Address
 						</label>
 						<input
-							className='input'
+							className={`input ${
+								message.includes("email") ? "wrong-input" : ""
+							}`}
 							type='email'
 							name='email'
 							id='email'
@@ -77,6 +87,10 @@ const Register = () => {
 							onChange={handleFormChange}
 						/>
 					</div>
+					{message.includes("email") && (
+						<p className='server-message'>{message}</p>
+					)}
+
 					<div className='input-group'>
 						<label htmlFor='password' className='label'>
 							Password

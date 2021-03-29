@@ -63,7 +63,19 @@
 }
 
 .input:focus {
-	border: 2px solid #042e6d;
+	border: 2px solid #034ebe;
+}
+
+.input.wrong-input {
+	border: 2px solid #f00;
+}
+
+.server-message {
+	color: #fff;
+	background-color: rgb(255, 87, 87);
+	margin: -1rem 1rem -1rem auto;
+	padding: 0.5rem 1rem;
+	border-radius: 0.25rem;
 }
 
 .register-button {
