@@ -1,5 +1,7 @@
 import React from "react";
 
+import { DEFAULT_COLOR } from "./../../constants/colors";
+
 import ColorCircle from "./../ColorCircle/ColorCircle";
 
 import "./TargetBlock.css";
@@ -11,6 +13,7 @@ const TargetBlock = ({ targetCode, guessesLeft }) => {
 			<div className='target-code'>
 				{targetCode &&
 					targetCode.map((color, index) => {
+						color = "?";
 						return <ColorCircle color={color} id={"target-color-" + index} />;
 					})}
 			</div>

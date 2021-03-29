@@ -3,4 +3,10 @@
 	width: 75px;
 	border-radius: 50%;
 	border: 2px solid #000;
+	background-color: #999;
+	color: #fff;
+	font-size: 70px;
+	line-height: 100%;
+	font-family: "Space Mono", monospace;
+	text-align: center;
 }

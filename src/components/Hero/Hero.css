@@ -1,16 +1,23 @@
 .hero {
 	width: calc(100% - 20rem);
 	flex-grow: 1;
-	/* height: 50vh; */
-	/* background-image: url("https://images.unsplash.com/photo-1516295302550-a3f8cd170585?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center; */
 	padding: 4rem 10rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.left {
+	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
+}
+
+.right {
+	flex-grow: 3;
+	height: 100%;
 }
 
 .hero__title {
@@ -18,7 +25,6 @@
 	font-weight: bold;
 	font-family: "RocknRoll One", sans-serif;
 	color: #322059;
-	/* -webkit-text-stroke: 2px #f2e205; */
 	text-shadow: 0 0 5px rgba(53, 27, 64, 0.3);
 }
 
