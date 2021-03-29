@@ -15,7 +15,7 @@ const loginPlayer = async (req, res) => {
 			return res.status(500).json({ error: err });
 		}
 		if (!player) {
-			return res.status(400).json({
+			return res.status(404).json({
 				message: `Player with email ${playerData.email} doesn't exist.`,
 			});
 		} else {
@@ -40,7 +40,7 @@ const loginPlayer = async (req, res) => {
 						},
 					});
 				} else {
-					return res.status(400).json({ message: `Incorrect Password.` });
+					return res.status(403).json({ message: `Incorrect password.` });
 				}
 			});
 		}

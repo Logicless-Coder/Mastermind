@@ -18,11 +18,15 @@ const registerPlayer = async (req, res) => {
 			return res.status(500).json({ error: err });
 		}
 		if (player) {
-			return res.status(400).json({
+			return res.status(303).json({
 				message: `Player with username ${player.username} already exists.`,
 			});
 		}
 	});
+
+	if (res.headersSent) {
+		return res.end();
+	}
 
 	// Check if a user with that email already exists
 	await Player.findOne({ email: playerData.email }, (err, player) => {
@@ -31,10 +35,14 @@ const registerPlayer = async (req, res) => {
 		}
 		if (player) {
 			return res
-				.status(400)
+				.status(303)
 				.json({ message: `Player with email ${player.email} already exists.` });
 		}
 	});
+
+	if (res.headersSent) {
+		return res.end();
+	}
 
 	const player = await Player.create(playerData);
 
