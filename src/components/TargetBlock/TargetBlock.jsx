@@ -1,7 +1,5 @@
 import React from "react";
 
-import { DEFAULT_COLOR } from "./../../constants/colors";
-
 import ColorCircle from "./../ColorCircle/ColorCircle";
 
 import "./TargetBlock.css";

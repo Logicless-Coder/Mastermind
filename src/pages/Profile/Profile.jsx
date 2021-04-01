@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 import Navbar from "../../components/Navbar/Navbar";
@@ -12,7 +12,6 @@ import "./Profile.css";
 
 const Profile = () => {
 	const auth = useSelector((state) => state.auth);
-	const dispatch = useDispatch();
 	const [rank, setRank] = useState(-1);
 
 	useEffect(() => {

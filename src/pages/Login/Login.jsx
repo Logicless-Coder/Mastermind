@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,6 @@ import { BACKEND_URL } from "./../../constants/route-urls";
 import "./Login.css";
 
 const Login = () => {
-	const auth = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 
 	const [formData, setFormData] = useState({});

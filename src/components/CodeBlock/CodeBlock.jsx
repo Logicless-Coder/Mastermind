@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-
-import { DEFAULT_COLOR } from "./../../constants/colors";
+import React from "react";
 
 import ColorCircle from "../ColorCircle/ColorCircle";
 
